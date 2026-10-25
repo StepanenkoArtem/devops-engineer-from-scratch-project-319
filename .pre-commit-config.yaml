@@ -1,0 +1,32 @@
+---
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: detect-private-key
+      - id: check-added-large-files
+        args: [--maxkb=1024]
+
+  - repo: local
+    hooks:
+      - id: forbid-secret-files
+        name: forbid Terraform state, tfvars, .terraform/ and .env
+        language: fail
+        entry: must not be committed
+        files: |
+          (?x)(
+              (^|/)\.terraform/
+            | \.tfstate(\..+)?$
+            | \.tfvars(\.json)?$
+            | (^|/)\.env(?!\.example$)(\..+)?$
+          )
+      - id: forbid-kubeconfig
+        name: forbid kubeconfig
+        language: pygrep
+        entry: '^kind:\s*Config\s*$'
+        types: [text]
