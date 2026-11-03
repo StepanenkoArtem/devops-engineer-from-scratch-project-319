@@ -16,4 +16,4 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - run: pipx run pre-commit==4.7.0 run --all-files --hook-stage manual
+      - run: pipx run pre-commit==4.7.0 run --all-files --hook-stage manual --verbose
