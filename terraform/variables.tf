@@ -8,5 +8,5 @@ variable "do_token" {
 variable "region" {
   type        = string
   description = "Region for the application infrastructure"
-  default     = "fra1"
+  default     = "lon1"
 }
