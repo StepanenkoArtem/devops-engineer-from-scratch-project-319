@@ -1,0 +1,9 @@
+[tools]
+terraform = "1.16.7"
+tflint = "0.53.0"
+doctl = "2.1.0"
+kubectl = "1.37"
+helm = "3.16.4"
+
+[env]
+_.file = ".env"

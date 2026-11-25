@@ -1,2 +1,7 @@
 docs/**
 .DS_Store
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+.env
